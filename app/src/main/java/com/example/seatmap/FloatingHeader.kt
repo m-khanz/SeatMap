@@ -23,8 +23,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForward
-import androidx.compose.material.icons.rounded.AccountBox
-import androidx.compose.material.icons.rounded.Email
+import androidx.compose.material.icons.rounded.ConfirmationNumber
+import androidx.compose.material.icons.rounded.FlightTakeoff
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -180,7 +180,7 @@ fun ModernFloatingHeader(
                             Text("LHR", fontSize = 24.sp, fontWeight = FontWeight.Bold, color = Color.White)
                             Spacer(Modifier.width(16.dp))
                             Icon(
-                                Icons.Rounded.Email,
+                                Icons.Rounded.FlightTakeoff,
                                 contentDescription = null,
                                 tint = Color(0xFFA78BFA),
                                 modifier = Modifier.size(28.dp)
@@ -232,7 +232,7 @@ fun ModernFloatingHeader(
                             ) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     Icon(
-                                        Icons.Rounded.AccountBox,
+                                        Icons.Rounded.ConfirmationNumber,
                                         contentDescription = null,
                                         tint = Color.White,
                                         modifier = Modifier.size(32.dp)

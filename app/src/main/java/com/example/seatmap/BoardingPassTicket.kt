@@ -26,9 +26,9 @@ import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountCircle
-import androidx.compose.material.icons.rounded.Face
-import androidx.compose.material.icons.rounded.Warning
+import androidx.compose.material.icons.rounded.AccountBalanceWallet
+import androidx.compose.material.icons.rounded.ConfirmationNumber
+import androidx.compose.material.icons.rounded.FlightTakeoff
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -131,7 +131,7 @@ fun BoardingPassTicket(seat: PlaneSeat) {
                             Text("LHR", fontSize = 42.sp, fontWeight = FontWeight.Black, color = Color.White)
                             Spacer(Modifier.width(24.dp))
                             Icon(
-                                Icons.Rounded.Face,
+                                Icons.Rounded.FlightTakeoff,
                                 contentDescription = null,
                                 tint = Color(0xFFA78BFA),
                                 modifier = Modifier.size(36.dp)
@@ -242,7 +242,7 @@ fun BoardingPassTicket(seat: PlaneSeat) {
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
-                                Icons.Rounded.AccountCircle,
+                                Icons.Rounded.ConfirmationNumber,
                                 contentDescription = null,
                                 tint = Color.Black,
                                 modifier = Modifier.size(28.dp)
@@ -282,7 +282,7 @@ fun BoardingPassTicket(seat: PlaneSeat) {
                             contentAlignment = Alignment.Center
                         ) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                Icon(Icons.Rounded.Warning, contentDescription = null, tint = Color.White)
+                                Icon(Icons.Rounded.AccountBalanceWallet, contentDescription = null, tint = Color.White)
                                 Spacer(Modifier.width(12.dp))
                                 Text(
                                     "Add to Wallet",
