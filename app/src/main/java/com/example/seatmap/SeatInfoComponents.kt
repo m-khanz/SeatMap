@@ -21,10 +21,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.AccountBox
-import androidx.compose.material.icons.rounded.Build
+import androidx.compose.material.icons.rounded.AirlineSeatReclineNormal
 import androidx.compose.material.icons.rounded.Close
-import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Power
+import androidx.compose.material.icons.rounded.Wifi
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -142,13 +142,13 @@ fun SeatInfoContent(
 
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             AnimatableItem(visible = contentVisible, enterDelay = 150, exitDelay = 100) {
-                InfoItem(Icons.Rounded.AccountBox, "Legroom", seat.legroom)
+                InfoItem(Icons.Rounded.AirlineSeatReclineNormal, "Legroom", seat.legroom)
             }
             AnimatableItem(visible = contentVisible, enterDelay = 250, exitDelay = 100) {
-                InfoItem(Icons.Rounded.Build, "Power", "USB-C")
+                InfoItem(Icons.Rounded.Power, "Power", "USB-C")
             }
             AnimatableItem(visible = contentVisible, enterDelay = 350, exitDelay = 100) {
-                InfoItem(Icons.Rounded.Settings, "Wi-Fi", "Starlink")
+                InfoItem(Icons.Rounded.Wifi, "Wi-Fi", "Starlink")
             }
         }
 
