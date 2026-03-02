@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.FastOutSlowInEasing

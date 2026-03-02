@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize

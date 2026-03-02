@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.seatmap"
+    namespace = "com.mkhanz.seatmap"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.seatmap"
+        applicationId = "com.mkhanz.seatmap.newdesign"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

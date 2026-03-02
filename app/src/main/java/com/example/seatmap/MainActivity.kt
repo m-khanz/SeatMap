@@ -1,12 +1,15 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import com.example.seatmap.ui.theme.SeatMapTheme
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.mkhanz.seatmap.experience.SeatExperienceFlow
+import com.mkhanz.seatmap.ui.theme.SeatMapTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,10 +17,20 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SeatMapTheme {
-                Scaffold { innerPadding ->
-                    SeatMap(modifier = androidx.compose.ui.Modifier.padding(innerPadding))
+                androidx.compose.material3.Surface(modifier = Modifier.fillMaxSize()) {
+                    SeatExperienceFlow()
                 }
             }
+        }
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFF020615)
+@Composable
+fun PreviewMotion() {
+    SeatMapTheme {
+        androidx.compose.material3.Surface(modifier = Modifier.fillMaxSize()) {
+            SeatExperienceFlow()
         }
     }
 }

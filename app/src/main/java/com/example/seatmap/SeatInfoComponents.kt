@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.Spring
