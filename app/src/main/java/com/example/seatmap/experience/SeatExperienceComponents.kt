@@ -12,6 +12,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -75,10 +76,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mkhanz.seatmap.R
 
 object SeatExperienceColors {
     val BackgroundStart = Color(0xFF040B1E)
@@ -194,7 +199,15 @@ fun FlightHeroHeader(flight: FlightContext) {
             Text(flight.flightCode, color = SeatExperienceColors.Gold, fontWeight = FontWeight.Bold, fontSize = 14.sp)
         }
         Spacer(Modifier.height(10.dp))
-        Text("Select Your Space", color = SeatExperienceColors.TextPrimary, fontSize = 52.sp, fontWeight = FontWeight.ExtraBold)
+        Text(
+            "Select Your Space",
+            color = SeatExperienceColors.TextPrimary,
+            fontSize = 26.sp,
+            lineHeight = 30.sp,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontWeight = FontWeight.ExtraBold
+        )
         Text("${flight.aircraftLabel} • Game Changer", color = SeatExperienceColors.TextMuted, fontSize = 16.sp)
     }
 }
@@ -226,29 +239,45 @@ fun AircraftHeroCard(sectionLabel: String) {
             modifier = Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 14.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Canvas(modifier = Modifier.fillMaxWidth().height(92.dp)) {
-                val path = Path().apply {
-                    moveTo(size.width * 0.06f, size.height * 0.55f)
-                    quadraticTo(size.width * 0.35f, size.height * 0.02f, size.width * 0.5f, size.height * 0.02f)
-                    quadraticTo(size.width * 0.65f, size.height * 0.02f, size.width * 0.94f, size.height * 0.55f)
-                    quadraticTo(size.width * 0.66f, size.height * 0.93f, size.width * 0.5f, size.height * 0.93f)
-                    quadraticTo(size.width * 0.34f, size.height * 0.93f, size.width * 0.06f, size.height * 0.55f)
-                    close()
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
+                    .clip(RoundedCornerShape(14.dp))
+                    .background(Color(0xFF111A2D)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.aircraft_header_art),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+                Canvas(modifier = Modifier.fillMaxSize()) {
+                    drawLine(
+                        color = SeatExperienceColors.Accent.copy(alpha = 0.30f),
+                        start = Offset(size.width * 0.2f, size.height * 0.44f),
+                        end = Offset(size.width * 0.8f, size.height * 0.44f),
+                        strokeWidth = 2f
+                    )
+                    drawLine(
+                        color = SeatExperienceColors.Accent.copy(alpha = 0.26f),
+                        start = Offset(size.width * 0.2f, size.height * 0.64f),
+                        end = Offset(size.width * 0.8f, size.height * 0.64f),
+                        strokeWidth = 2f
+                    )
+                    val outline = Path().apply {
+                        moveTo(size.width * 0.08f, size.height * 0.56f)
+                        quadraticTo(size.width * 0.34f, size.height * 0.14f, size.width * 0.5f, size.height * 0.14f)
+                        quadraticTo(size.width * 0.66f, size.height * 0.14f, size.width * 0.92f, size.height * 0.56f)
+                        quadraticTo(size.width * 0.66f, size.height * 0.90f, size.width * 0.5f, size.height * 0.90f)
+                        quadraticTo(size.width * 0.34f, size.height * 0.90f, size.width * 0.08f, size.height * 0.56f)
+                        close()
+                    }
+                    drawPath(outline, color = Color(0x1A6FA9FF), style = Stroke(width = 2f))
                 }
-                drawPath(path, color = Color(0x111E90FF), style = Stroke(width = 3f))
-                drawLine(
-                    color = SeatExperienceColors.Accent.copy(alpha = 0.28f),
-                    start = Offset(size.width * 0.2f, size.height * 0.42f),
-                    end = Offset(size.width * 0.8f, size.height * 0.42f),
-                    strokeWidth = 2f
-                )
-                drawLine(
-                    color = SeatExperienceColors.Accent.copy(alpha = 0.28f),
-                    start = Offset(size.width * 0.2f, size.height * 0.62f),
-                    end = Offset(size.width * 0.8f, size.height * 0.62f),
-                    strokeWidth = 2f
-                )
             }
+            Spacer(Modifier.height(10.dp))
             Text(
                 sectionLabel,
                 color = SeatExperienceColors.TextMuted,

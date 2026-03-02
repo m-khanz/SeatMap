@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 
-private enum class SeatFlowStep { INTRO, SECTION, PICKER, REVIEW, CHECKOUT, PAYMENT }
+private enum class SeatFlowStep { INTRO, LIGHT_PICKER, SECTION, PICKER, REVIEW, CHECKOUT, PAYMENT }
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -43,7 +43,25 @@ fun SeatExperienceFlow() {
         when (currentStep) {
             SeatFlowStep.INTRO -> IntroStepScreen(
                 flight = SeatExperienceData.flight,
-                onContinue = { step = SeatFlowStep.SECTION }
+                onContinue = { step = SeatFlowStep.LIGHT_PICKER }
+            )
+
+            SeatFlowStep.LIGHT_PICKER -> LightSeatSelectionScreen(
+                flight = SeatExperienceData.flight,
+                seats = seats,
+                onSeatSelect = { tapped ->
+                    if (tapped.state != SeatState.OCCUPIED) {
+                        seats = seats.map {
+                            when {
+                                it.id == tapped.id -> it.copy(state = SeatState.SELECTED)
+                                it.state == SeatState.SELECTED -> it.copy(state = SeatState.AVAILABLE)
+                                else -> it
+                            }
+                        }
+                    }
+                },
+                onBack = { step = SeatFlowStep.INTRO },
+                onConfirm = { if (selectedSeat != null) step = SeatFlowStep.SECTION }
             )
 
             SeatFlowStep.SECTION -> SectionStepScreen(
@@ -53,7 +71,7 @@ fun SeatExperienceFlow() {
                 onSectionChange = { selectedSection = it },
                 onCabinChange = { selectedCabin = it },
                 onContinue = { step = SeatFlowStep.PICKER },
-                onBack = { step = SeatFlowStep.INTRO }
+                onBack = { step = SeatFlowStep.LIGHT_PICKER }
             )
 
             SeatFlowStep.PICKER -> PickerStepScreen(
