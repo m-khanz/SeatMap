@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import org.junit.Test
 

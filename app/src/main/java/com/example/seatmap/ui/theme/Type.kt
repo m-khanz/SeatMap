@@ -1,4 +1,4 @@
-package com.example.seatmap.ui.theme
+package com.mkhanz.seatmap.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

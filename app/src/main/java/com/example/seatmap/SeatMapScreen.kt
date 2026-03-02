@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 import android.app.Activity
 import androidx.compose.animation.AnimatedContent
@@ -301,6 +301,6 @@ fun SeatMap(modifier: Modifier = Modifier) {
 
 @Preview
 @Composable
-fun PreviewMotion() {
+fun PreviewSeatMapScreen() {
     SeatMap()
 }

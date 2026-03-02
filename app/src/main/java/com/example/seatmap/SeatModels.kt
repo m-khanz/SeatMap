@@ -1,4 +1,4 @@
-package com.example.seatmap
+package com.mkhanz.seatmap
 
 /** Represents a single rendered seat in the aircraft layout. */
 data class PlaneSeat(
