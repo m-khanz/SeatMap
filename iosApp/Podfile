@@ -1,6 +1,9 @@
+source 'https://cdn.cocoapods.org'
+
 platform :ios, '15.0'
+project 'iosApp.xcodeproj'
 
 target 'iosApp' do
   use_frameworks!
-  pod 'ComposeApp', :path => '../composeApp'
+  pod 'composeApp', :path => '../composeApp'
 end
