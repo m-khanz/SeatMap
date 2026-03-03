@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "SeatMap"
 include(":app")
+include(":composeApp")
  
